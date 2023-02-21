@@ -1,0 +1,43 @@
+body {
+    background-image: linear-gradient(90deg, rgb(82, 67, 170), rgb(237, 80, 180));
+    font-family: verdana;
+}
+h1 {
+    text-align: center;
+    font-size: 25px;
+}
+table {
+    background-color: white;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    padding: 50px;
+    margin: 30px;
+    line-height: 2.5;
+    font-size: 13px;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    margin-right: 100px;
+    margin-left: 200px;
+    text-decoration: none;
+
+}
+th {
+    background-color: steelblue;
+    color: white;
+}
+
+}
+a:link, a:visited {
+  background-color: black;
+  color: black;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #04AA6D;
+}

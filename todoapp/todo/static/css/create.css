@@ -1,0 +1,25 @@
+ h1{
+    color:black;
+     text-align: center;
+    }
+ body{
+    background-color: #92a8d1;
+    font-size : 20px;
+}
+
+ form{
+        background-color: steelblue;
+        font-family:sans-serif;
+        font-size=10px;
+        text-align:center
+        width: 1px;
+        height: 400px;
+        padding: 50px;
+        border: 1px solid blue;
+         box-sizing: border-box;
+         margin-top: 70px;
+  margin-bottom: 70px;
+  margin-right: 300px;
+  margin-left: 300px;
+        }
+

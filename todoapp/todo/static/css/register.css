@@ -1,0 +1,62 @@
+body{
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+form{
+    background: white;
+    box-sizing: border-box;
+    width: 320px;
+    text-align: center;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+.enter{
+    display: grid;
+}
+.enter input{
+    margin: 8px;
+    width: 250px;
+    height:30px;
+    border-radius: 3px;
+    border-color: rgb(182, 182, 182);
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 31px;
+}
+.save{
+    background-color: rgb(0, 42, 255);
+    color: white;
+    width: 250px;
+    height: 30px;
+    border-radius: 6px;
+    border-style: none;
+    margin-top: 15px;
+}
+.sign a{
+    text-decoration: none;
+}
+.or{
+    display: flex;
+    font-size: 15px;
+    color: rgb(182, 182, 182);
+}
+.hr1{
+    width: 40%;
+}
+.face,.google{
+    background-color: rgb(5, 17, 146);
+    color: white;
+    width: 250px;
+    height: 35px;
+    border-radius: 6px;
+    border-style: none;
+    padding-top: 4px;
+}
+.face i{
+    float: left;
+    font-size: 17px;
+}

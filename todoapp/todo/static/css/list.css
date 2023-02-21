@@ -1,0 +1,31 @@
+h1{
+     color:black;
+     text-align: center;
+  }
+
+table{
+      background-color:plum;
+      width: 900px;
+      border: 2px solid green;
+      padding: 50px;
+      margin: 30px;
+      line-height: 3.5;
+      font-size: 17px;
+      margin-top: 40px;
+      margin-bottom: 70px;
+      margin-right: 300px;
+      margin-left: 200px;
+      text-decoration: none;
+     }
+body{
+ background :linear-gradient(90deg, rgb(82, 67, 170), rgb(237, 80, 180));
+font-size : 20px;
+font-color: black;
+}
+h3{
+    color: black;
+}
+
+.item{
+ text-decoration: none;
+}
