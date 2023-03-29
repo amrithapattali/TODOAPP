@@ -5,7 +5,7 @@ body{
     align-items: center;
     margin-top: 150px;
 }
-form{
+box{
     background: white;
     box-sizing: border-box;
     width: 320px;

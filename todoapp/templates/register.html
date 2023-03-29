@@ -12,28 +12,60 @@
 </head>
 <body>
 
-    <form action="/signup" method='POST'>
+    <div class="box">
+      <form method="POST" action="">
         {% csrf_token %}
         <h1>Signup</h1>
-        <div class="enter">
-            <input type="text" id='username' name='username' placeholder='Create a username'Required>
+        <input
+          type="text"
+          name="username"
+          class="username"
+          id="username"
+          placeholder="Enter username"
+          required
+        /><br />
+        <input
+          type="text"
+          name="email"
+          class="email"
+          id="email"
+          placeholder="Enter email"
+          required
+        /><br />
+        <input
+          type="text"
+          name="pass1"
+          class="pass1"
+          id="pass1"
+          placeholder="Enter password"
+          required
+        /><br />
+        <input
+          type="text"
+          name="pass2"
+          class="pass2"
+          id="pass2"
+          placeholder="Confirm password"
+          required
+        /><br />
+        <button>Signup</button>
+      </form>
+      <p>
+        Already have an account?
+        <a href="{% url 'login' %}">Login</a>
+      </p>
+      <hr>
+      <div class="fb">
+        <a href=""><button><i class="fa-brands fa-square-facebook"></i>     Login with Facebook</button></a>
+      </div>
+      <div class="google">
+        <a href=""><button><i class="fa-brands fa-google"></i>     Login with Google</button></a>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
 
-        <input type="email" id='email' name='email' placeholder='Enter Your Email Address'Required>
-
-        <input type="password" id='pass1' name='pass1' placeholder='Create a Password'Required>
-
-        <input type="password" id='pass2' name='pass2' placeholder='Confirm Your Password'Required>
-        </div>
-
-        <button type='submit' class="save">Sign Up</button>
-        <p class='sign'>Already have an account?<a href="signin/">Login</a></p>
-        <div class="or">
-            <hr class='hr1'>
-            Or
-            <hr class='hr1'>
-        </div>
-
-    </form>
 
 
 </body>

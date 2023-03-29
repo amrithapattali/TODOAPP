@@ -1,25 +1,55 @@
 
 <!DOCTYPE html>
 {% load static %}
-<html lang="en" >
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
     <link rel="stylesheet" href="https://images.pexels.com/photos/32997/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://kit.fontawesome.com/e08ada629c.js" crossorigin="anonymous"></script>
     <title>login</title>
 </head>
 <body >
 <center>
-<form method="post" action="{% url 'login' %}" class="form1">
-    <h2>Login</h2>
-    {% csrf_token %}
-    {{form.username}}<br>
-    {{form.password}}
-    <a href="">Forgot password</a><br>
-    <input class="login"  type="submit" value="Login">
-     <p class='sp'>have not account yet?<a href="signin/">Signup</a></p>
-</form>
-</center>
+<div class="box">
+      <h1>Login</h1>
+      <form method="POST">
+        {% csrf_token %}
+        <input
+          type="text"
+          class="username"
+          name="username"
+          id="username"
+          placeholder="Enter username"
+          required
+        /><br />
+        <input
+          type="text"
+          class="pass1"
+          name="pass1"
+          id="pass1"
+          placeholder="Enter password"
+          required
+        /><br />
+        <a href="" class="forgot">Forgot Password?</a><br><br>
+
+        <div class="submit"><button class="btn-primary" type="submit">Login
+
+        </button></div>
+      </form>
+      <p>
+        Don't have an account?
+        <a href="{% url 'register' %}">Create an account</a>.
+      </p>
+      <hr>
+      <div class="fb">
+        <a href=""><button><i class="fa-brands fa-square-facebook"></i>     Login with Facebook</button></a>
+      </div>
+      <div class="google">
+        <a href=""><button><i class="fa-brands fa-google"></i>     Login with Google</button></a>
+      </div>
+    </div>
 </body>
+</center>
 </html>
