@@ -1,9 +1,11 @@
+from django.contrib import messages
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView, TemplateView
 
-from .forms import RegisterForm, LoginForm
 from .models import Tasks
 
 
@@ -30,17 +32,37 @@ from .models import Tasks
 #
 
 
+class HomePageView(TemplateView):
+    template_name = 'home.html'
+
 class Tasklist(ListView):
     model = Tasks  # table name
     context_object_name = 'task'  # url name
     template_name = 'tasklist.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['task'] = context['task'].filter(user=self.request.user)
+        context['count'] = context['task'].filter(completed=False).count()
+
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            context['task'] = context['task'].filter(title__startswith=search_input)
+
+        context['search_input'] = search_input
+
+        return context
+
 
 class TaskCreate(CreateView):
     model = Tasks
-    fields = '__all__'
+    fields = ['title', 'completed']
     success_url = reverse_lazy('task')  # to redirect or back to other url
     template_name = 'TaskCreate.html'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(TaskCreate, self).form_valid(form)
 
 
 class TaskUpdate(UpdateView):
@@ -64,28 +86,43 @@ class TaskDetailView(DetailView):
     template_name = 'taskview.html'
 
 
-def register_fun(request):
-    context={}
-    s = RegisterForm(request.POST )
-    if s.is_valid():
-        s.save()
-        return redirect('/todo/task-list/')
-    context['form'] = s
-    return render(request,"register.html",context)
+def register(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        pass1 = request.POST['pass1']
+        pass2 = request.POST['pass2']
+
+        myuser = User.objects.create_user(username, email, pass1)
+
+        myuser.save()
+
+        return redirect('login')
+
+    return render(request, 'register.html')
 
 
+def login_1(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        pass1 = request.POST['pass1']
 
-def login_fun(request):
-    context={}
-    s = LoginForm(request.POST )
-    if s.is_valid():
-        s.save()
-        return redirect('/todo/task-list/')
-    context['form'] = s
-    return render(request,"login.html",context)
+        user = authenticate(username=username, password=pass1)
+
+        if user is not None:
+            login(request, user)
+            fname = user.username
+            return render(request, 'tasklist.html', {'fname': fname})
+
+        else:
+            return redirect('login')
+
+    return render(request, 'login.html')
 
 
+def signout(request):
+    logout(request)
+    messages.success(request, 'Logged out Successfully!')
+    return redirect('login')
 
 
-
-#

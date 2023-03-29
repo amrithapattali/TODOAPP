@@ -3,16 +3,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/create.css'%}">
+
     <title>Task Create</title>
 </head>
+<style>
+     .header-bar {
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            background: linear-gradient(to bottom, #6699CC, #336699);;
+        }
+
+        .header-bar a {
+            color: rgb(247, 247, 247);
+            text-decoration: none;
+        }
+
+         .button {
+            color: #4caf50 ;
+            padding: 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #4caf50 ;
+        }
+
+
+
+    h2{
+     color:blue;
+     text-align: center;
+    }
+
+ body{
+    background-color: #92a8d1;
+    font-size : 20px;
+}
+
+ form{
+        background-color: steelblue;
+        font-family:sans-serif;
+        font-size=10px;
+        text-align:center
+        width: 1px;
+        height: 450px;
+        padding: 50px;
+        border: 1px solid blue;
+         box-sizing: border-box;
+         margin-top: 70px;
+          margin-bottom: 70px;
+          margin-right: 300px;
+          margin-left: 300px;
+        }
+
+
+</style>
 <body>
-<h1> Task Create</h1>
+<div class="header-bar">
+    <a href="{% url 'task' %}">go back</a>
+    <center>
+    <h2>TASK CREATE</h2>
+        </center>
+</div>
+
 <center>
+    <div class="card-body">
 <form method="post" action="">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="submit">
+     <input class="button" style="background: steelblue;" type="submit" value="Submit">
 </center>
 </form>
 
