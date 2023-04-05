@@ -9,27 +9,6 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView, D
 from .models import Tasks
 
 
-# Create your views here.
-#
-# class CustomLoginView(LoginView):
-#     template_name = 'login.html'
-#     fields = '__all__'
-#     redirect_authenticated_user = True
-#
-#     def get_success_url(self):
-#         return reverse_lazy('task')
-
-
-
-
-# class CustomRegisterView(RegisterView):
-#     template_name = 'register.html'
-#     fields = '__all__'
-#     redirect_authenticated_user = True
-#
-#     def get_success_url(self):
-#         return reverse_lazy('tasks')
-#
 
 
 class HomePageView(TemplateView):

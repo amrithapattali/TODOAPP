@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>reads.com</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background: white;
+            text-align: center;
+        }
+        .navbar {
+            padding: 20px;
+            background: steelblue;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #f2f2f2;
+            text-decoration: none;
+        }
+        .navbar-brand:hover {
+            background-color: transparent;
+            color: #f2f2f2;
+        }
+        .container-fluid {
+            padding: 120px;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+
+        a {
+            margin: 0 10px;
+            padding: 3px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: None;
+        }
+        .header-link {
+            margin: 0 10px;
+            padding: 5px;
+            border: 0px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #f2f2f2;
+            font-size: 12px;
+            transition: background-color 0.3s ease;
+        }
+        .header-link:hover {
+            background-color: #f2f2f2;
+            color: #000;
+            text-decoration: None;
+        }
+
+        .site-footer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .site-footer p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <p class="navbar-brand  mx-auto">
+            TODO
+            <br>
+            {% if request.user.is_authenticated %}
+            <small style="font-size: 14px;"><i>Hello {{user.username|title}}</i></small>
+            <br>
+            <a class="header-link" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+
+            <br>
+            <a class="header-link" href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </p>
+    </nav>
+    <div class="container-fluid" id="quotes-container">
+
+        <br>
+        <a href="{% url 'login' %}">LOGIN</a><br>
+        <img src="https://classroomclipart.com/images/gallery/Animations/Education_School/GF_boy-with-pen-notebook-animation.gif" height="300" width="300">
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 Amritha. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
