@@ -14,6 +14,9 @@ from .models import Tasks
 class HomePageView(TemplateView):
     template_name = 'home.html'
 
+class HomePageView(TemplateView):
+    template_name = 'home.html'
+
 class Tasklist(ListView):
     model = Tasks  # table name
     context_object_name = 'task'  # url name

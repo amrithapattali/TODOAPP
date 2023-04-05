@@ -3,20 +3,21 @@ from django.conf.urls.static import static
 from django.urls import path
 
 from . import views
-from .views import Tasklist, TaskCreate, TaskUpdate, TaskDelete, TaskDetailView, HomePageView
+from .views import Tasklist, TaskCreate, TaskUpdate, TaskDelete, TaskDetailView
+
+
+
 
 urlpatterns = [
-
-    path('', HomePageView.as_view(), name='home'),
-    path('task/', Tasklist.as_view(), name='task'),  # asview=  class based
+    path('task-list/', Tasklist.as_view(), name='task'),  # asview=  class based
     path('task-create/', TaskCreate.as_view(), name='task-create'),
     path('task-update/<int:pk>/', TaskUpdate.as_view(), name = 'task-update'),
     path('task-delete/<int:pk>/', TaskDelete.as_view(), name='task-delete'),
     path('task-view/<int:pk>/', TaskDetailView.as_view(), name='task-view'),
-    path('login/',views.login_1,name='login'),
-    path('register/',views.register,name='register'),
-    path('logout/', views.signout, name='logout')
-
+    # path('login/', CustomLoginView.as_view(), name='login')
+    # path('register-view/<int:pk>/',CustomRegisterView, name='register-view')
+    path('login/',views.login_fun,name='login'),
+    path('register/',views.register_fun,name='register')
 
 
 ]
